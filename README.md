@@ -1,7 +1,7 @@
-template
+cron
 =========
 
-Template for Ansible role monorepos
+Cretes and removes cron jobs by config (/molecule/default/files/test.yaml)
 
 Requirements
 ------------
@@ -21,15 +21,12 @@ None
 Example Playbook
 ----------------
 
-```yaml
-roles:
-    - role: genlab.template
-```
+See `molecule/default/converge`
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
