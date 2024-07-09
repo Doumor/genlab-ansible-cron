@@ -1,0 +1,23 @@
+---
+- name: "Read variables from the configuration file"
+  ansible.builtin.include_vars:
+    file: "{{ cron_config }}"
+
+- name: "Create cron jobs"
+  ansible.builtin.cron:
+    name:    "{{ item.name }}"
+    user:    "{{ item.user }}"
+    minute:  "{{ item.minute }}"
+    hour:    "{{ item.hour }}"
+    day:     "{{ item.day }}"
+    weekday: "{{ item.weekday }}"
+    month:   "{{ item.month }}"
+    job:     "{{ item.job }}"
+  loop: "{{ cron_jobs }}"
+
+- name: "Remove cron jobs"
+  ansible.builtin.cron:
+    name: "{{ item.name }}"
+    user: "{{ item.user }}"
+    state: absent
+  loop: "{{ cron_jobs_remove }}"

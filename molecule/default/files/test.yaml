@@ -1,0 +1,24 @@
+---
+cron_jobs:
+  - name: "test_job"
+    user: "root"
+    minute: "0"
+    hour: "*"
+    day: "*"
+    weekday: "*"
+    month: "*"
+    job: "cat 1"
+
+  - name: "test_job_2"
+    user: "root"
+    minute: "0"
+    hour: "*"
+    day: "*"
+    weekday: "*"
+    month: "*"
+    job: "cat 1"
+
+cron_jobs_remove:
+  - name: "test_job_3"
+    user: "root"
+    state: absent
